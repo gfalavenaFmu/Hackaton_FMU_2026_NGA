@@ -1,0 +1,11 @@
+{
+  "reference_clients_per_day": 618,
+  "assumed_lunch_minutes": 210,
+  "reference_weight_grams": 482,
+  "price_per_kg_cents": 11990,
+  "stations": {
+    "buffet": {"sample_share": 0.72, "base_wait": 52, "active_waits": [136, 95, 48, 22]},
+    "churrasqueira": {"sample_share": 0.49, "base_wait": 111, "active_waits": [420, 390, 360, 330, 308, 220, 151, 85]},
+    "balanca": {"sample_share": 0.68, "base_wait": 34, "active_waits": [48, 21]}
+  }
+}

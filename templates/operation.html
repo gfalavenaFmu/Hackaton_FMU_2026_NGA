@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operação • Radar do Almoço</title>
+  <link rel="stylesheet" href="/static/radar.css">
+  <script defer src="/static/radar.js"></script>
+</head>
+<body data-page="operation">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">◔</span><span>Radar do Almoço<small>Bovinu’S · Unidade Augusta</small></span></a>
+      <nav aria-label="Telas"><a href="/">Painel gerencial</a><a href="/operacao" aria-current="page">Operação</a></nav>
+    </div>
+  </header>
+  <main class="operation-main">
+    <section class="page-heading">
+      <div><h1>Registrar fila</h1><p>Abra uma senha na chegada e encerre a espera quando começar o atendimento.</p></div>
+      <div class="clock"><span id="mode">Conectando</span><strong id="clock">—</strong></div>
+    </section>
+    <section class="operation-card">
+      <div class="new-arrival">
+        <label for="station-select">Estação</label>
+        <select id="station-select"><option value="buffet">Buffet</option><option value="churrasqueira">Churrasqueira</option><option value="balanca">Balança</option></select>
+        <button type="button" id="arrival" class="primary" disabled>+ Registrar chegada</button>
+      </div>
+      <p class="notice" id="notice" role="status" hidden></p>
+      <div class="queue-heading"><h2>Em espera</h2><span id="queue-count">—</span></div>
+      <ul class="queue" id="queue"></ul>
+    </section>
+  </main>
+  <dialog id="departure-dialog">
+    <form id="departure-form">
+      <h2>Registrar saída da fila?</h2><p id="departure-message"></p>
+      <div class="dialog-actions"><button type="button" class="secondary" id="cancel-departure">Cancelar</button><button type="submit" class="primary">Confirmar saída</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

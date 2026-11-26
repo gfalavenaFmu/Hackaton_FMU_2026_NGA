@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel gerencial • Radar do Almoço</title>
+  <link rel="stylesheet" href="/static/radar.css">
+  <script defer src="/static/radar.js"></script>
+</head>
+<body data-page="dashboard">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">◔</span><span>Radar do Almoço<small>Bovinu’S · Unidade Augusta</small></span></a>
+      <nav aria-label="Telas"><a href="/" aria-current="page">Painel gerencial</a><a href="/operacao">Operação</a></nav>
+    </div>
+  </header>
+  <main>
+    <section class="page-heading">
+      <div><h1>Filas do almoço</h1><p>Acompanhe o percurso do cliente e priorize onde a espera passa do limite.</p></div>
+      <div class="page-actions">
+        <div class="clock"><span id="mode">Conectando</span><strong id="clock">—</strong></div>
+        <button type="button" id="advance" class="secondary" hidden>Avançar 1 min</button>
+        <details class="tools" id="tools"><summary aria-label="Opções do painel" title="Opções do painel">⋯</summary>
+          <div class="menu"><button type="button" id="open-limits">Configurar limites</button><a href="/api/export.csv" download>Exportar registros (CSV)</a><button type="button" id="reset" hidden>Restaurar demo das 13h06</button></div>
+        </details>
+      </div>
+    </section>
+    <p class="notice" id="notice" role="status" hidden></p>
+    <section class="overview" aria-label="Resumo da amostra">
+      <div><span>Registros em espera</span><strong id="waiting-total">—</strong></div>
+      <div><span>Estações em alerta</span><strong id="alert-total">—</strong></div>
+      <div><span>Atendimentos iniciados <small>· 15 min</small></span><strong id="completed-total">—</strong></div>
+      <div><span>Saídas antes do atendimento <small>· 15 min</small></span><strong id="departure-total">—</strong></div>
+    </section>
+    <div class="section-title"><h2>Percurso monitorado</h2><span>Amostra de registros manuais</span></div>
+    <section id="stations" class="stations" aria-label="Estações do percurso"></section>
+    <section class="priorities" aria-labelledby="priorities-title">
+      <div class="section-title"><h2 id="priorities-title">Prioridades agora</h2></div>
+      <div id="alerts" class="alerts"></div>
+    </section>
+    <footer id="reference" class="reference"></footer>
+  </main>
+  <dialog id="limits">
+    <form id="limit-form">
+      <h2>Limites de espera</h2><p>Minutos máximos por estação antes de gerar um alerta.</p>
+      <div id="limit-fields"></div>
+      <div class="dialog-actions"><button type="button" class="secondary" id="close-limits">Cancelar</button><button type="submit" class="primary">Salvar limites</button></div>
+    </form>
+  </dialog>
+  <dialog id="reset-dialog">
+    <form id="reset-form">
+      <h2>Restaurar o cenário das 13h06?</h2><p>Os registros e os limites editados nesta demonstração voltam aos valores iniciais, e o relógio volta para 13h06.</p>
+      <div class="dialog-actions"><button type="button" class="secondary" id="cancel-reset">Cancelar</button><button type="submit" class="primary">Restaurar demo</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

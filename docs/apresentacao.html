@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Radar do Almoço | Pitch FMU Tech 2026.2</title>
+  <style>
+    :root { color-scheme: light; font: 18px/1.5 'Segoe UI', system-ui, sans-serif; color: #192d23; background: #14291e; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { display: grid; min-height: calc(100svh - 66px); place-items: center; padding: 1.5rem; }
+    .slide { display: flex; flex-direction: column; justify-content: center; gap: clamp(.65rem, 2vw, 1.7rem); width: min(100%, 1160px); min-height: min(67vw, 650px); padding: clamp(1.2rem, 5vw, 4.8rem); background: #f7f6ed; border-radius: 10px; }
+    .slide[hidden] { display: none; }
+    .cover { background: #244b35; color: #fcfbf3; }
+    .eyebrow { font-size: .88rem; font-weight: 700; letter-spacing: .06em; color: #49664e; }
+    .cover .eyebrow { color: #d5e8ae; }
+    h1, h2, h3, p, dl, dd, ol { margin: 0; }
+    h1, h2 { line-height: 1.02; letter-spacing: -.052em; max-width: 17ch; }
+    h1 { font-size: clamp(3.1rem, 8.5vw, 7.4rem); }
+    h2 { font-size: clamp(2.2rem, 5.8vw, 4.4rem); }
+    h3, dt { font-size: clamp(1rem, 2.5vw, 1.35rem); font-weight: 750; }
+    .intro { font-size: clamp(1.14rem, 2.6vw, 1.66rem); max-width: 47ch; }
+    .note { font-size: .9rem; color: #496052; max-width: 72ch; }
+    .metrics, .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; border-top: 1px solid #bfcbbd; padding-top: 1.1rem; }
+    .metrics strong { display: block; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1; letter-spacing: -.05em; }
+    .flow > div > p { margin-top: .35rem; max-width: 26ch; }
+    .story { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; border-block: 1px solid #bfcbbd; padding-block: .9rem; }
+    .story dd { margin-top: .45rem; }
+    .story strong { color: #8a3022; }
+    .pilot { padding-left: 1.25rem; }
+    .pilot li + li { margin-top: .55rem; }
+    nav { display: flex; align-items: center; justify-content: center; gap: .65rem; min-height: 66px; padding: .55rem; color: #f8faf4; }
+    button { background: #294936; color: #f8faf4; border: 1px solid #6b8b6c; padding: .35rem .65rem; border-radius: 5px; font: inherit; cursor: pointer; }
+    button:focus-visible { outline: 3px solid #e2ef91; outline-offset: 2px; }
+    button:disabled { opacity: .45; cursor: default; }
+    #position { min-width: 3.1rem; text-align: center; }
+    @media (max-width: 600px) {
+      main { padding: .65rem; }
+      .slide { min-height: 0; }
+      .metrics, .flow, .story { grid-template-columns: 1fr; gap: .65rem; }
+      nav { flex-wrap: wrap; }
+    }
+    @media print {
+      @page { size: A4 landscape; margin: 0; }
+      :root { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      main { display: block; padding: 0; }
+      .slide, .slide[hidden] { display: flex; width: 297mm; min-height: 210mm; border-radius: 0; break-after: page; }
+      .slide:last-child { break-after: auto; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="slide cover" aria-labelledby="title-1">
+      <p class="eyebrow">HACKATHON FMU TECH 2026.2</p>
+      <h1 id="title-1">Radar do Almoço</h1>
+      <p class="intro">Onde a espera aumenta no almoço da Bovinu’S Augusta?</p>
+    </section>
+    <section class="slide" aria-labelledby="title-2" hidden>
+      <h2 id="title-2">Uma fila que ainda precisa ser medida</h2>
+      <p class="intro">Por volta das 13h06, dois ângulos mostram clientes concentrados junto ao buffet.</p>
+      <div class="metrics">
+        <p><strong>~618</strong> clientes ao dia</p>
+        <p><strong>482 g</strong> por cliente durante a semana</p>
+        <p><strong>R$ 119,90</strong> por quilo</p>
+      </div>
+      <p class="note">Fonte: mapa, vídeos e informações operacionais da Bovinu’S Augusta.</p>
+    </section>
+    <section class="slide" aria-labelledby="title-3" hidden>
+      <h2 id="title-3">Da senha ao painel</h2>
+      <p class="intro">Buffet, churrasqueira e balança têm limites de espera configuráveis.</p>
+      <div class="flow">
+        <div><h3>Operação</h3><p>Registra chegada, início do atendimento ou saída da fila.</p></div>
+        <div><h3>Python + SQLite</h3><p>Preservam os registros e calculam a espera em cada estação.</p></div>
+        <div><h3>Gerência</h3><p>Consulta a fila a cada 5 segundos e recebe uma ação sugerida.</p></div>
+      </div>
+      <p class="note">A equipe mapeou o percurso, implementou as duas telas e testou a repetição do cenário.</p>
+    </section>
+    <section class="slide" aria-labelledby="title-4" hidden>
+      <p class="eyebrow">DEMONSTRAÇÃO SIMULADA ÀS 13H06</p>
+      <h2 id="title-4">Alerta na churrasqueira</h2>
+      <dl class="story">
+        <div><dt>Antes dos registros de atendimento</dt><dd><strong>8</strong> em espera · <strong>5</strong> acima de 4 min · <strong>7 min</strong> de maior espera</dd></div>
+        <div><dt>Após 1 chegada e 5 inícios de atendimento</dt><dd><strong>4</strong> em espera · <strong>0</strong> estações em alerta</dd></div>
+      </dl>
+      <p class="intro">Ação sugerida na demo: deslocar apoio para o corte.</p>
+      <p class="note">O relógio pausado mantém o cenário estável enquanto a equipe demonstra os registros.</p>
+    </section>
+    <section class="slide" aria-labelledby="title-5" hidden>
+      <h2 id="title-5">Piloto no horário de pico</h2>
+      <p class="intro"><strong>R$ 57,79</strong> é o valor de um prato de 482 g ao preço por quilo da Augusta. O alerta usa esse valor como cenário hipotético de venda.</p>
+      <ol class="pilot">
+        <li>Medir a espera e as saídas na churrasqueira durante o almoço.</li>
+        <li>Testar apoio no corte em uma faixa de horário comparável.</li>
+        <li>Comparar a mediana, a proporção acima do limite e as saídas.</li>
+      </ol>
+    </section>
+  </main>
+  <nav aria-label="Controles da apresentação">
+    <button type="button" id="previous">Anterior</button><output id="position" aria-live="polite">1 / 5</output><button type="button" id="next">Próximo</button><button type="button" id="fullscreen">Tela cheia</button>
+  </nav>
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const previous = document.querySelector('#previous');
+    const next = document.querySelector('#next');
+    const fullscreen = document.querySelector('#fullscreen');
+    let current = 0;
+    function show(index) {
+      current = Math.max(0, Math.min(slides.length - 1, index));
+      slides.forEach((slide, position) => { slide.hidden = position !== current; });
+      document.querySelector('#position').textContent = `${current + 1} / ${slides.length}`;
+      previous.disabled = current === 0;
+      next.disabled = current === slides.length - 1;
+    }
+    previous.addEventListener('click', () => show(current - 1));
+    next.addEventListener('click', () => show(current + 1));
+    fullscreen.hidden = !document.fullscreenEnabled;
+    fullscreen.addEventListener('click', async () => {
+      if (document.fullscreenElement) await document.exitFullscreen();
+      else await document.documentElement.requestFullscreen();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') show(current - 1);
+      if (event.key === 'ArrowRight') show(current + 1);
+    });
+    show(0);
+  </script>
+</body>
+</html>
