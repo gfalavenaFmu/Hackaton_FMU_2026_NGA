@@ -1,3 +1,9 @@
+Integrantes:
+Arthur Henrique Longo - 2025116860
+Gabriel Falavena Oliveira - 2025116965
+Nicolas Maciel de Souza - 2025116314
+
+
 # Radar do Almoço
 
 Protótipo para o **Hackathon FMU Tech 2026.2**, desenvolvido para o almoço por quilo da **Bovinu’S Grill & Beer — Unidade Augusta**.
