@@ -1,4 +1,4 @@
-Integrantes:
+Integrantes: **Grupo NGA**
 Arthur Henrique Longo - 2025116860
 Gabriel Falavena Oliveira - 2025116965
 Nicolas Maciel de Souza - 2025116314
